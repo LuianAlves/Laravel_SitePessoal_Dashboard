@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+/* --------------------------- Admin Routes --------------------------- */
+
+Route::prefix('admin')->group(function(){
+
+    Route::get('/login', [AdminController::class, 'LoginForm'])->name('login_form');
+    Route::get('/login/autenticando', [AdminController::class, 'Login'])->name('admin.login');
+    Route::get('/Painel', [AdminController::class, 'Index'])->name('admin.index');
+});
+
+
+
+
+
+/* --------------------------- Frontend Routes --------------------------- */
+
+/* --------------------------- Geral Routes --------------------------- */
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

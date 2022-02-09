@@ -38,6 +38,9 @@ Aplicação com dois templates, um para o front-end e outro para o dashboard bac
 ## Até o momento:
 
 * Iniciando o projeto;
+<br>
+* Instalando o Breeze;
+<br>
 
 
 </p>
